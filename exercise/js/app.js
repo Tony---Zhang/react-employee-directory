@@ -11,9 +11,29 @@ var Header = React.createClass({
 });
 
 var SearchBar = React.createClass({
+    getInitialState: function () {
+        return {
+            searchKey: ''
+        }
+    },
+
+    handleSearchAlert:function(key) {
+        alert('Search key: ' + key);
+    },
+
+    handleSearch: function (event) {
+        var input = event.target.value;
+        // This is not apply right now, after run out of
+        // this function scope, this state will bring into effect
+        this.setState({searchKey: input});
+
+        // show alert
+        this.handleSearchAlert(input);
+    },
+
     render: function () {
         return (
-            <input id="searchInput"/>
+            <input id="searchInput" type="text" onChange={this.handleSearch} />
         );
     }
 });
