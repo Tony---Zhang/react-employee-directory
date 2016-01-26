@@ -19,6 +19,10 @@ var SearchBar = React.createClass({
 });
 
 var EmployeeListItem = React.createClass({
+    propTypes: {
+        employee: React.PropTypes.element.isRequired
+    },
+
     render: function () {
         return (
             <li>
@@ -31,6 +35,10 @@ var EmployeeListItem = React.createClass({
 });
 
 var EmployeeList = React.createClass({
+    propTypes: {
+        employees: React.PropTypes.element.isRequired
+    },
+
     render: function () {
         var items = this.props.employees.map(function (employee) {
             return (
