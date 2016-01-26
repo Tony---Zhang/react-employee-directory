@@ -29,6 +29,5 @@ In a list component (like `EmployeeList`), it’s a **common pattern to programm
 The key attribute (like in `EmployeeListItem` above) is used to uniquely identify an instance of a component (useful in the diff process).
 
 ## Goals
-Add EmployeeListItem component to load dynamic employees' list
-
-
+* Add EmployeeListItem component to load dynamic employees' list
+* EmployeeListItem will have a herf with `#employees/{employee.id}`

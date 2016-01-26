@@ -18,13 +18,28 @@ var SearchBar = React.createClass({
     }
 });
 
-var EmployeeList = React.createClass({
+var EmployeeListItem = React.createClass({
     render: function () {
         return (
+            <li>
+                <a href={"#employees/"+this.props.employee.id}>
+                    {this.props.employee.firstName} {this.props.employee.lastName}
+                </a>
+            </li>
+        );
+    }
+});
+
+var EmployeeList = React.createClass({
+    render: function () {
+        var items = this.props.employees.map(function (employee) {
+            return (
+                <EmployeeListItem key={employee.id} employee={employee}/>
+            );
+        });
+        return (
             <ul>
-                <li>James King</li>
-                <li>Julie Taylor</li>
-                <li>Eugene Lee</li>
+                {items}
             </ul>
         );
     }
@@ -32,11 +47,17 @@ var EmployeeList = React.createClass({
 
 var HomePage = React.createClass({
     render: function () {
+        // Hardcoded employee list;
+        var employeeList = [
+            {id: '001', firstName: 'James', lastName: 'King'},
+            {id: '002', firstName: 'Julie', lastName: 'Taylor'},
+            {id: '003', firstName: 'Eugene', lastName: 'Lee'}
+        ];
         return (
             <div>
                 <Header title="Employee List"/>
                 <SearchBar />
-                <EmployeeList />
+                <EmployeeList employees={employeeList}/>
             </div>
         );
 
