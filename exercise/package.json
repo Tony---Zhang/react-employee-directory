@@ -1,0 +1,29 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "This is my first web project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Tony---Zhang/react-employee-directory.git"
+  },
+  "keywords": [
+    "ReactJS"
+  ],
+  "author": "Zhang Shuai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tony---Zhang/react-employee-directory/issues"
+  },
+  "homepage": "https://github.com/Tony---Zhang/react-employee-directory#readme",
+  "dependencies": {
+    "jshint": "^2.9.1"
+  },
+  "devDependencies": {}
+}
