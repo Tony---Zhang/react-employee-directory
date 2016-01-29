@@ -1,3 +1,4 @@
+'use strict';
 // Header will show the title of this page;
 // SearchBar include a input edit;
 // EmployeeList will show a hardcode employee's list
