@@ -18,23 +18,18 @@ var SearchBar = React.createClass({
         }
     },
 
-    handleSearchAlert:function(key) {
-        alert('Search key: ' + key);
-    },
-
     handleSearch: function (event) {
         var input = event.target.value;
         // This is not apply right now, after run out of
         // this function scope, this state will bring into effect
         this.setState({searchKey: input});
 
-        // show alert
-        this.handleSearchAlert(input);
+        this.props.searchHandler(input);
     },
 
     render: function () {
         return (
-            <input id="searchInput" type="text" onChange={this.handleSearch} />
+            <input id="searchInput" type="text" onChange={this.handleSearch}/>
         );
     }
 });
@@ -75,18 +70,24 @@ var EmployeeList = React.createClass({
 });
 
 var HomePage = React.createClass({
+    getInitialState: function () {
+        return {
+            employees: []
+        }
+    },
+    handleSearch: function (key) {
+        this.props.service.findByName(key).done(function (result) {
+            console.debug('Search key: %s', key);
+            console.debug('Result: %s', JSON.stringify(result, null, 4));
+            this.setState({employees: result});
+        }.bind(this));
+    },
     render: function () {
-        // Hardcoded employee list;
-        var employeeList = [
-            {id: '001', firstName: 'James', lastName: 'King'},
-            {id: '002', firstName: 'Julie', lastName: 'Taylor'},
-            {id: '003', firstName: 'Eugene', lastName: 'Lee'}
-        ];
         return (
             <div>
                 <Header title="Employee List"/>
-                <SearchBar />
-                <EmployeeList employees={employeeList}/>
+                <SearchBar searchHandler={this.handleSearch}/>
+                <EmployeeList employees={this.state.employees}/>
             </div>
         );
 
@@ -94,6 +95,6 @@ var HomePage = React.createClass({
 });
 
 ReactDOM.render(
-    <HomePage />,
+    <HomePage service={employeeService}/>,
     document.body
 );
