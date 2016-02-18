@@ -3,6 +3,9 @@
 // SearchBar include a input edit;
 // EmployeeList will show a hardcode employee's list
 
+var employeeService = require('./service/data.js');
+var router = require('./router.js');
+
 var Header = React.createClass({
     render: function () {
         return (
@@ -36,7 +39,7 @@ var SearchBar = React.createClass({
 
 var EmployeeListItem = React.createClass({
     propTypes: {
-        employee: React.PropTypes.element.isRequired
+        employee: React.PropTypes.object.isRequired
     },
 
     render: function () {
@@ -52,7 +55,7 @@ var EmployeeListItem = React.createClass({
 
 var EmployeeList = React.createClass({
     propTypes: {
-        employees: React.PropTypes.element.isRequired
+        employees: React.PropTypes.array.isRequired
     },
 
     render: function () {

@@ -1,4 +1,4 @@
-employeeService = (function () {
+module.exports = (function () {
 
     var findById = function (id) {
             var deferred = $.Deferred();

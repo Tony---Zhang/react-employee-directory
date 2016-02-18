@@ -9,7 +9,9 @@
   "scripts": {
     "lint": "eslint app",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf node_modules",
+    "postinstall": "npm run build",
+    "build": "webpack -p --progress --config webpack.config.js",
+    "clean": "rm -rf node_modules && rm app/build/bundle.js",
     "greeting": "echo \"Welcome on board!\"\nwhoami"
   },
   "repository": {
@@ -35,6 +37,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0-beta6",
+    "babel-loader": "^6.2.3",
+    "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^4.0.0",

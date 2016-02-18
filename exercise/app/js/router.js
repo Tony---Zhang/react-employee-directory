@@ -1,4 +1,4 @@
-var router = (function () {
+module.exports = (function () {
 
     'use strict';
 
