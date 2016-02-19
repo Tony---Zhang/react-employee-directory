@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run build",
     "build": "webpack -p --progress --config webpack.config.js",
-    "clean": "rm -rf node_modules && rm app/build/bundle.js",
+    "clean": "rm -rf node_modules && rm -rf app/build",
     "greeting": "echo \"Welcome on board!\"\nwhoami"
   },
   "repository": {
